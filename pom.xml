@@ -12,7 +12,7 @@
     <name>presto-jdbc</name>
 
     <properties>
-        <air.main.basedir>${project.parent.basedir}</air.main.basedir>
+        <air.main.basedir>${project.basedir}</air.main.basedir>
         <shadeBase>com.facebook.presto.jdbc.internal</shadeBase>
     </properties>
 
