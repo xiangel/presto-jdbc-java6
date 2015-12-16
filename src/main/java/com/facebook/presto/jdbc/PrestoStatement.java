@@ -13,6 +13,8 @@
  */
 package com.facebook.presto.jdbc;
 
+import com.facebook.presto.client.StatementClient;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -140,7 +142,9 @@ public class PrestoStatement
     public void cancel()
             throws SQLException
     {
-        throw new SQLFeatureNotSupportedException("cancel");
+        PrestoResultSet prestoResultSet = (PrestoResultSet) this.currentResult.get();
+        StatementClient client = prestoResultSet.getClient();
+        client.cancelLeafStage();
     }
 
     @Override

@@ -149,6 +149,11 @@ public class PrestoResultSet
         return queryId;
     }
 
+    public StatementClient getClient()
+    {
+        return client;
+    }
+
     @Override
     public boolean next()
             throws SQLException
